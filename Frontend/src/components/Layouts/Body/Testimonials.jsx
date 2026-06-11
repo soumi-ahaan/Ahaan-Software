@@ -62,6 +62,21 @@ const Testimonials = () => {
     return () => window.removeEventListener("resize", updateVisibleCards);
   }, []);
 
+  useEffect(() => {
+  if (testimonials.length === 0) return;
+
+  const interval = setInterval(() => {
+    setIndex((prev) => {
+      const maxIndex = Math.max(0, testimonials.length - visibleCards);
+
+      return prev >= maxIndex ? 0 : prev + 1;
+    });
+  }, 3000); // 3 seconds
+
+  return () => clearInterval(interval);
+}, [testimonials, visibleCards]);
+
+
   // Scroll left/right
   // const scroll = (dir) => {
   //   const maxIndex = testimonials.length - visibleCards;
@@ -70,17 +85,17 @@ const Testimonials = () => {
   //   if (newIndex > maxIndex) newIndex = maxIndex;
   //   setIndex(newIndex);
   // };
-
   const scroll = (dir) => {
-    const maxIndex = Math.max(0, testimonials.length - visibleCards);
+  const maxIndex = Math.max(0, testimonials.length - visibleCards);
 
-    let newIndex = dir === "left" ? index - 1 : index + 1;
+  if (dir === "left") {
+    setIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+  } else {
+    setIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+  }
+};
 
-    if (newIndex < 0) newIndex = 0;
-    if (newIndex > maxIndex) newIndex = maxIndex;
 
-    setIndex(newIndex);
-  };
 
   return (
     <div className="container section-header-tech">
@@ -97,7 +112,7 @@ const Testimonials = () => {
       <div className="testimonial-slider">
         <div className="testimonial-wrapper">
           <button
-            className={`testimonial-arrow-btn left ${index === 0 ? "disabled" : ""}`}
+            className="testimonial-arrow-btn left"
             onClick={() => scroll("left")}
           >
             <FaChevronLeft />
@@ -151,8 +166,7 @@ const Testimonials = () => {
           </div>
 
           <button
-            className={`testimonial-arrow-btn right ${index >= testimonials.length - visibleCards ? "disabled" : ""
-              }`}
+            className="testimonial-arrow-btn right"
             onClick={() => scroll("right")}
           >
             <FaChevronRight />

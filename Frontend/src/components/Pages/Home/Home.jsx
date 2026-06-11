@@ -7,6 +7,7 @@ const ServicesSection = lazy(() => import("../Portfolio/ServicesSection"));
 const ThirdSection = lazy(() => import("../../Layouts/Body/ThirdSection"));
 const TotalProject = lazy(() => import("../../Layouts/Body/TotalProject"));
 const FirstSection = lazy(() => import("../../Layouts/Body/FirstSection"));
+const Watermark = lazy(() => import("../../Layouts/Body/Watermark"));
 const WhyChooseUs = lazy(() => import("../../Layouts/Body/WhyChooseUs"));
 const OurProcess = lazy(() => import("../../Layouts/Body/OurProcess"));
 const ConnectSection = lazy(() => import("../../Layouts/Body/ConnectSection"));
@@ -41,6 +42,7 @@ const Home = () => {
         <ImageCarousel />
         <CaseStudyCarousel />
         <TestimonialCarousel />
+        <Watermark/>
         <SecondBanner />
       </Suspense>
       
