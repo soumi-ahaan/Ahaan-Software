@@ -102,7 +102,9 @@ const CaseStudyDetails = () => {
       description: acf.solution_5_description,
       image: images.solution5,
     },
-  ];
+  ].filter(
+  (item) => item.title && item.description && item.image
+);
 
   return (
     <div className="case-details">
@@ -143,98 +145,107 @@ const CaseStudyDetails = () => {
       </section>
 
       {/* PROJECT OVERVIEW */}
+      {acf.project_overview && images.projectOverview && (
+        <section className="project-overview-section">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-lg-6">
+                <h2>Project Overview</h2>
 
-      <section className="project-overview-section">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <h2>Project Overview</h2>
+                <p>{acf.project_overview}</p>
+              </div>
 
-              <p>{acf.project_overview}</p>
-            </div>
-
-            <div className="col-lg-6">
-              <img src={images.projectOverview} className="img-fluid" alt="" />
+              <div className="col-lg-6">
+                <img
+                  src={images.projectOverview}
+                  className="img-fluid"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CHALLENGES */}
+      {acf.challenges && images.challenges && (
+        <section className="challenges-section">
+          <div className="container">
+            <div className="row align-items-center challenges-row">
+              {/* Content Left*/}
+              <div className="col-lg-6">
+                <img src={images.challenges} className="img-fluid" alt="" />
+              </div>
 
-      <section className="challenges-section">
-        <div className="container">
-          <div className="row align-items-center challenges-row">
-            {/* Content Left*/}
-            <div className="col-lg-6">
-              <img src={images.challenges} className="img-fluid" alt="" />
-            </div>
+              {/* Image Right  */}
 
-            {/* Image Right  */}
+              <div className="col-lg-6">
+                <h2>Challenges</h2>
 
-            <div className="col-lg-6">
-              <h2>Challenges</h2>
-
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: acf.challenges,
-                }}
-              />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: acf.challenges,
+                  }}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* KEY BENEFITS */}
+      {acf["key_features_&_benefits"] && images.featureImage && (
+        <section className="key-benefits-section">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-lg-6">
+                <h2>Key Features & Benefits</h2>
 
-      <section className="key-benefits-section">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <h2>Key Features & Benefits</h2>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: acf["key_features_&_benefits"],
+                  }}
+                />
+              </div>
 
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: acf["key_features_&_benefits"],
-                }}
-              />
-            </div>
-
-            <div className="col-lg-6">
-              <img src={images.featureImage} className="img-fluid" alt="" />
+              <div className="col-lg-6">
+                <img src={images.featureImage} className="img-fluid" alt="" />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* TECHNOLOGIES */}
 
-      <section className="technologies-section">
-        <div className="container">
-          <h2>technologies & methodologies used</h2>
+      {images.tech1 && images.tech2 && images.tech3 && images.tech4 && (
+        <section className="technologies-section">
+          <div className="container">
+            <h2>technologies & methodologies used</h2>
 
-          <div className="technologies-wrapper">
-            <div className="tech-item">
-              <img src={images.tech1} alt="" />
-            </div>
+            <div className="technologies-wrapper">
+              <div className="tech-item">
+                <img src={images.tech1} alt="" />
+              </div>
 
-            <div className="tech-item">
-              <img src={images.tech2} alt="" />
-            </div>
+              <div className="tech-item">
+                <img src={images.tech2} alt="" />
+              </div>
 
-            <div className="tech-item">
-              <img src={images.tech3} alt="" />
-            </div>
+              <div className="tech-item">
+                <img src={images.tech3} alt="" />
+              </div>
 
-            <div className="tech-item">
-              <img src={images.tech4} alt="" />
+              <div className="tech-item">
+                <img src={images.tech4} alt="" />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* SOLUTIONS */}
-
+      {solutions.length > 0 && (
       <section className="solution-section">
         <div className="container">
           <h2 className="solution-main-title">the solutions provided</h2>
@@ -261,88 +272,97 @@ const CaseStudyDetails = () => {
           </div>
         </div>
       </section>
+      )}
 
       {/* BUSINESS IMPACT */}
+      {acf.business_impact && images.businessImpact && (
+        <section className="business-impact-section">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-lg-6">
+                <img src={images.businessImpact} className="img-fluid" alt="" />
+              </div>
 
-      <section className="business-impact-section">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <img src={images.businessImpact} className="img-fluid" alt="" />
-            </div>
+              <div className="col-lg-6">
+                <h2>Business Impact</h2>
 
-            <div className="col-lg-6">
-              <h2>Business Impact</h2>
-
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: acf.business_impact,
-                }}
-              />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: acf.business_impact,
+                  }}
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* DESIGN HIGHLIGHTS */}
+      {acf.design_highlights && images.designHighlights && (
+        <section className="design-highlights-section">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-lg-6">
+                <h2>Design Highlights</h2>
 
-      <section className="design-highlights-section">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <h2>Design Highlights</h2>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: acf.design_highlights,
+                  }}
+                />
+              </div>
 
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: acf.design_highlights,
-                }}
-              />
-            </div>
-
-            <div className="col-lg-6">
-              <img src={images.designHighlights} className="img-fluid" alt="" />
+              <div className="col-lg-6">
+                <img
+                  src={images.designHighlights}
+                  className="img-fluid"
+                  alt=""
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* WHY THIS PROJECT STANDS OUT */}
-
-      <section className="project-standout-section">
-        <div className="container">
-          <div className="standout-card">
-            <h2>Why This Project Stands Out</h2>
-
-            <div
-              dangerouslySetInnerHTML={{
-                __html: acf.why_this_project_stands_out,
-              }}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* PROJECT DETAILS */}
-
-      <section className="project-details-section">
-        <div className="container">
-          <div className="row align-items-center">
-            <div className="col-lg-6">
-              <img src={images.projectDetails} className="img-fluid" alt="" />
-            </div>
-
-            <div className="col-lg-6">
-              <h2>Project Details</h2>
+      {acf.why_this_project_stands_out && (
+        <section className="project-standout-section">
+          <div className="container">
+            <div className="standout-card">
+              <h2>Why This Project Stands Out</h2>
 
               <div
                 dangerouslySetInnerHTML={{
-                  __html: acf.project_details,
+                  __html: acf.why_this_project_stands_out,
                 }}
               />
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
+      {/* PROJECT DETAILS */}
+      {acf.project_details && images.projectDetails && (
+        <section className="project-details-section">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-lg-6">
+                <img src={images.projectDetails} className="img-fluid" alt="" />
+              </div>
+
+              <div className="col-lg-6">
+                <h2>Project Details</h2>
+
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: acf.project_details,
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 };
