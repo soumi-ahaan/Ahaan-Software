@@ -21,6 +21,9 @@ import {
   FaUsers,
   FaFutbol,
   FaEllipsisH,
+  FaWindowMaximize,
+  FaIdCard,
+  FaTag,
 } from "react-icons/fa";
 
 const AllUiUxDesign = () => {
@@ -92,22 +95,20 @@ const AllUiUxDesign = () => {
 
     "web-banner": {
       label: "Web Banner",
-      icon: <FaThLarge />,
+      icon: <FaWindowMaximize />,
     },
     "business-card": {
       label: "Business Card",
-      icon: <FaThLarge />,
+      icon: <FaIdCard />,
     },
     "product-label": {
       label: "Product Label",
-      icon: <FaThLarge />,
+      icon: <FaTag />,
     },
     others: {
       label: "Others",
       icon: <FaEllipsisH />,
     },
-
-
   };
 
   useEffect(() => {
