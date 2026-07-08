@@ -128,7 +128,7 @@ const BannerContent = () => {
 
       {/* CTA Button */}
       <Link to="/contact" className="banner-btn">
-        Get Started →
+        Get a Custom Solution Proposal →
       </Link>
     </div>
   );
