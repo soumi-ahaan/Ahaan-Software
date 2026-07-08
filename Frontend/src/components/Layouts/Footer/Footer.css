@@ -289,6 +289,21 @@
   background: linear-gradient(45deg, #0077b5, #00a0dc);
 }
 
+.footer-social-icons .icon.dribbble:hover,
+.footer-social-icons .icon.dribbble:hover .tooltip {
+  background: linear-gradient(45deg, #9f0175, #e992d2);
+}
+
+.footer-social-icons .icon.behance:hover,
+.footer-social-icons .icon.behance:hover .tooltip {
+  background: linear-gradient(45deg, #0124e8, #758aff);
+}
+
+.footer-social-icons .icon.github:hover,
+.footer-social-icons .icon.github:hover .tooltip {
+  background: linear-gradient(45deg, #333333, #666666);
+}
+
 /* Responsive Quick Links Container */
 .quicklink-responsive {
   display: flex;

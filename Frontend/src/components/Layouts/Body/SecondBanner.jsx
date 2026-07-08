@@ -44,7 +44,7 @@ const CallToAction = () => {
                 </div>
  
                 <a
-                  href="tel:+1-740-748-4441"
+                  href="tel:+1-646-575-9575"
                   style={{
                     display: "inline-block",
                     marginTop: "10px",
@@ -53,7 +53,7 @@ const CallToAction = () => {
                     color: "#fff",
                   }}
                 >
-                  +1-740-748-4441
+                  +1-646-575-9575
                 </a>
               </div>
             </div>
